@@ -8,7 +8,7 @@ const About: React.FC = () => {
       {/* Page Header */}
       <section className="py-24 border-b border-white/5">
         <div className="container mx-auto px-6 lg:px-12">
-          <p className="text-[#00B87C] text-xs font-bold tracking-[0.4em] uppercase mb-4 text-center">Since 2009</p>
+          <p className="text-[#19e680] text-xs font-bold tracking-[0.4em] uppercase mb-4 text-center">Since 2009</p>
           <h1 className="text-5xl md:text-7xl font-serif text-white text-center">About Spero Solutions</h1>
         </div>
       </section>
@@ -17,8 +17,8 @@ const About: React.FC = () => {
       <section className="py-24">
         <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="relative">
-            <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=1000" className="rounded-3xl shadow-2xl grayscale" alt="Our Facility" />
-            <div className="absolute -bottom-10 -right-10 w-2/3 p-1 bg-gradient-to-br from-[#00B87C] to-emerald-900 rounded-3xl">
+            <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=1000" className="rounded-3xl shadow-2xl grayscale border border-white/5" alt="Our Facility" />
+            <div className="absolute -bottom-10 -right-10 w-2/3 p-1 bg-gradient-to-br from-[#19e680] to-green-900 rounded-3xl shadow-xl">
               <div className="bg-[#0a0a0a] rounded-[22px] p-8 text-white">
                 <p className="text-sm font-light leading-relaxed">"We bridge the gap between luxury and longevity in modern architecture."</p>
               </div>
@@ -34,11 +34,11 @@ const About: React.FC = () => {
             </p>
             <div className="grid grid-cols-2 gap-8 pt-6">
               <div>
-                <span className="block text-4xl font-serif text-[#00B87C] mb-2">500+</span>
+                <span className="block text-4xl font-serif text-[#19e680] mb-2 drop-shadow-[0_0_10px_rgba(25,230,128,0.3)]">500+</span>
                 <span className="text-xs font-bold tracking-widest text-zinc-400 uppercase">Projects Delivered</span>
               </div>
               <div>
-                <span className="block text-4xl font-serif text-[#00B87C] mb-2">12+</span>
+                <span className="block text-4xl font-serif text-[#19e680] mb-2 drop-shadow-[0_0_10px_rgba(25,230,128,0.3)]">12+</span>
                 <span className="text-xs font-bold tracking-widest text-zinc-400 uppercase">Patent Formulas</span>
               </div>
             </div>
@@ -55,8 +55,8 @@ const About: React.FC = () => {
             { icon: <Users className="w-10 h-10" />, title: "Client Focus", text: "Tailored solutions for unique architectural needs." },
             { icon: <Award className="w-10 h-10" />, title: "Expertise", text: "Decades of combined technical knowledge." }
           ].map((val, i) => (
-            <div key={i} className="p-10 bg-zinc-900/50 rounded-2xl border border-white/5 hover:border-[#00B87C]/30 transition-all group">
-              <div className="text-[#00B87C] mb-6 group-hover:scale-110 transition-transform duration-500">{val.icon}</div>
+            <div key={i} className="p-10 bg-zinc-900/50 rounded-2xl border border-white/5 hover:border-[#19e680]/30 transition-all group">
+              <div className="text-[#19e680] mb-6 group-hover:scale-110 transition-transform duration-500">{val.icon}</div>
               <h3 className="text-xl font-bold text-white mb-4">{val.title}</h3>
               <p className="text-zinc-500 text-sm leading-relaxed">{val.text}</p>
             </div>
