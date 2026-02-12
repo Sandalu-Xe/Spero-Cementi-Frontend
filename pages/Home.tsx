@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ArrowRight, 
   ChevronDown, 
@@ -90,10 +90,10 @@ const Home: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
-            <Link to="/portfolio" className="bg-[#00A550] text-black px-12 py-5 rounded-md font-bold text-[11px] tracking-[0.2em] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all transform hover:-translate-y-1 uppercase shadow-[0_10px_30px_rgba(0,165,80,0.3)]">
+            <Link to="/products" className="bg-[#00A550] text-black px-12 py-5 rounded-md font-bold text-[11px] tracking-[0.2em] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all transform hover:-translate-y-1 uppercase shadow-[0_10px_30px_rgba(0,165,80,0.3)]">
               EXPLORE PRODUCTS
             </Link>
-            <Link to="/services" className="bg-white/80 dark:bg-black/80 backdrop-blur-md border border-zinc-300 dark:border-zinc-800 text-black dark:text-white px-12 py-5 rounded-md font-bold text-[11px] tracking-[0.2em] hover:border-black dark:hover:border-white transition-all uppercase">
+            <Link to="/contact" className="bg-white/80 dark:bg-black/80 backdrop-blur-md border border-zinc-300 dark:border-zinc-800 text-black dark:text-white px-12 py-5 rounded-md font-bold text-[11px] tracking-[0.2em] hover:border-black dark:hover:border-white transition-all uppercase">
               TECHNICAL DATA
             </Link>
           </div>
@@ -108,44 +108,6 @@ const Home: React.FC = () => {
               className={`h-[2px] transition-all duration-500 ${idx === currentSlide ? 'w-12 bg-[#00A550]' : 'w-4 bg-zinc-400 dark:bg-zinc-800 hover:bg-zinc-600'}`}
             />
           ))}
-        </div>
-      </section>
-
-      {/* Colorful Authority Section */}
-      <section className="py-40 border-y border-zinc-100 dark:border-zinc-900 bg-zinc-50 dark:bg-black transition-colors duration-500">
-        <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <p className="text-[#00A550] text-[10px] font-bold tracking-ultra-wide uppercase">Material Science</p>
-              <h2 className="text-5xl md:text-7xl font-serif text-black dark:text-white leading-tight">Beyond Simple <br/>Cement</h2>
-              <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-xl">
-                We don't just sell products; we engineer molecular solutions. Our polymer-modified formulas react with architectural substrates to create an unbreakable bond.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-              <div className="p-8 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 hover:border-[#00A550]/50 transition-colors group shadow-md rounded-md">
-                <Cpu className="w-8 h-8 text-[#00A550] mb-6 group-hover:scale-110 transition-transform" />
-                <h4 className="text-black dark:text-white font-bold mb-2">Smart Bonding</h4>
-                <p className="text-zinc-500 text-sm">Molecular cross-linking technology for zero-delamination guarantee.</p>
-              </div>
-              <div className="p-8 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 hover:border-[#00A550]/50 transition-colors group shadow-md rounded-md">
-                <Shield className="w-8 h-8 text-[#00A550] mb-6 group-hover:scale-110 transition-transform" />
-                <h4 className="text-black dark:text-white font-bold mb-2">Nano-Guard</h4>
-                <p className="text-zinc-500 text-sm">Invisible protective barrier against UV and chemical corrosion.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="relative group">
-            <div className="aspect-[4/5] overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-800 shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1594913785162-e6785b4ad3a2?q=80&w=1976&auto=format&fit=crop" 
-                className="w-full h-full object-cover brightness-100 group-hover:scale-105 transition-all duration-1000" 
-                alt="Colorful texture detail"
-              />
-            </div>
-          </div>
         </div>
       </section>
 

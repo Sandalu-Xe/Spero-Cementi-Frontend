@@ -10,6 +10,7 @@ import Portfolio from './pages/Portfolio';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Products from './pages/Products';
+import ProductDetails from './pages/ProductDetails';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -71,6 +72,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/:productId" element={<ProductDetails />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
