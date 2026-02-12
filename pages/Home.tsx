@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   ArrowRight,
@@ -11,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Home: React.FC = () => {
   return (
     <div className="bg-white dark:bg-[#000000] selection:bg-brand-primary selection:text-black">
-      {/* Static Hero Section (Replaces the Carousel) */}
+      {/* Static Hero Section */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-black">
         <div className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-80 dark:opacity-60 scale-100">
           <img 
@@ -19,7 +18,6 @@ const Home: React.FC = () => {
             alt="Architectural texture" 
             className="w-full h-full object-cover animate-slow-pan"
           />
-          {/* Overlay to ensure text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-white/60 dark:from-black/70 via-white/20 dark:via-transparent to-white dark:to-black"></div>
         </div>
 
@@ -55,7 +53,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Full-Color Grid Portfolio Section */}
+      {/* Concrete Mastery Section - Updated with Grayscale hover concept */}
       <section className="py-40 container mx-auto px-6 lg:px-12 bg-white dark:bg-black">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
           <div className="max-w-xl">
@@ -68,26 +66,43 @@ const Home: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+          {/* Main Large Image: Minimalist Villa */}
           <div className="md:col-span-8 relative overflow-hidden group aspect-video md:aspect-auto border border-zinc-100 dark:border-zinc-900 shadow-xl rounded-md">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" alt="Villa" />
+            <img 
+              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" 
+              className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
+              alt="Minimalist Villa" 
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-12 flex flex-col justify-end text-white">
-              <h3 className="text-3xl font-serif">Minimalist Villa</h3>
-              <p className="text-[#00A550] text-xs font-bold uppercase tracking-widest mt-2">Wall Finishing / Texture 402</p>
+              <h3 className="text-4xl font-serif">Minimalist Villa</h3>
+              <p className="text-[#00A550] text-[10px] font-bold uppercase tracking-[0.2em] mt-3">Wall Finishing / Texture 402</p>
             </div>
           </div>
+
           <div className="md:col-span-4 grid grid-rows-2 gap-6">
+            {/* Top Side Image: Loft Studio */}
             <div className="relative overflow-hidden group border border-zinc-100 dark:border-zinc-900 shadow-lg rounded-md">
-              <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" alt="Loft" />
+              <img 
+                src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" 
+                className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
+                alt="Loft Studio" 
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-8 flex flex-col justify-end text-white">
-                <h4 className="text-xl font-serif">Loft Studio</h4>
-                <p className="text-[#00A550] text-[10px] uppercase font-bold tracking-widest">Polished Floor</p>
+                <h4 className="text-2xl font-serif">Loft Studio</h4>
+                <p className="text-[#00A550] text-[9px] uppercase font-bold tracking-[0.2em] mt-2">Polished Floor</p>
               </div>
             </div>
+
+            {/* Bottom Side Image: Commercial Hall */}
             <div className="relative overflow-hidden group border border-zinc-100 dark:border-zinc-900 shadow-lg rounded-md">
-              <img src="https://images.unsplash.com/photo-1581850518616-bcb8186c39ea" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" alt="Commercial" />
+              <img 
+                src="https://images.unsplash.com/photo-1581850518616-bcb8186c39ea" 
+                className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
+                alt="Commercial Hall" 
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-8 flex flex-col justify-end text-white">
-                <h4 className="text-xl font-serif">Commercial Hall</h4>
-                <p className="text-[#00A550] text-[10px] uppercase font-bold tracking-widest">Epoxy System</p>
+                <h4 className="text-2xl font-serif">Commercial Hall</h4>
+                <p className="text-[#00A550] text-[9px] uppercase font-bold tracking-[0.2em] mt-2">Epoxy System</p>
               </div>
             </div>
           </div>
