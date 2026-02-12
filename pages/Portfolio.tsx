@@ -18,17 +18,17 @@ const Portfolio: React.FC = () => {
   const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen pb-24">
+    <div className="bg-white dark:bg-[#0a0a0a] min-h-screen pb-24 transition-colors duration-500">
       <section className="py-24 container mx-auto px-6 lg:px-12 text-center">
-        <p className="text-[#19e680] text-xs font-bold tracking-[0.4em] uppercase mb-4">Our Work</p>
-        <h1 className="text-5xl md:text-7xl font-serif text-white mb-12">Masterpiece Projects</h1>
+        <p className="text-[#00A550] text-xs font-bold tracking-[0.4em] uppercase mb-4">Our Work</p>
+        <h1 className="text-5xl md:text-7xl font-serif text-black dark:text-white mb-12">Masterpiece Projects</h1>
 
         <div className="flex flex-wrap justify-center gap-8 text-[10px] font-bold tracking-widest mb-20">
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`pb-2 uppercase transition-all border-b-2 ${filter === cat ? 'text-[#19e680] border-[#19e680]' : 'text-zinc-500 border-transparent hover:text-white'}`}
+              className={`pb-2 uppercase transition-all border-b-2 ${filter === cat ? 'text-[#00A550] border-[#00A550]' : 'text-zinc-400 dark:text-zinc-500 border-transparent hover:text-black dark:hover:text-white'}`}
             >
               {cat}
             </button>
@@ -37,15 +37,15 @@ const Portfolio: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="group relative overflow-hidden rounded-2xl aspect-[4/5] animate-fade-in border border-white/5">
+            <div key={project.id} className="group relative overflow-hidden rounded-sm aspect-[4/5] animate-fade-in border border-zinc-100 dark:border-white/5">
               <img 
                 src={`${project.img}?auto=format&fit=crop&w=800&q=80`} 
                 alt={project.title} 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 p-10 flex flex-col justify-end">
-                <span className="text-[#19e680] text-[10px] font-bold tracking-widest uppercase mb-2">{project.category}</span>
-                <h3 className="text-white text-2xl font-serif leading-tight">{project.title}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-transparent to-transparent opacity-90 p-10 flex flex-col justify-end">
+                <span className="text-[#00A550] text-[10px] font-bold tracking-widest uppercase mb-2">{project.category}</span>
+                <h3 className="text-black dark:text-white text-2xl font-serif leading-tight">{project.title}</h3>
               </div>
             </div>
           ))}
