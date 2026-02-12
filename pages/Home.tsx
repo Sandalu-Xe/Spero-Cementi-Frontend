@@ -1,84 +1,39 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { 
-  ArrowRight, 
-  ChevronDown, 
-  CheckCircle, 
-  FlaskConical, 
-  Factory, 
-  CheckSquare, 
-  ChevronLeft, 
-  ChevronRight,
+  ArrowRight,
   Shield,
   Zap,
-  Award,
-  Cpu
+  Award
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const HERO_SLIDES = [
-  {
-    image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2070&auto=format&fit=crop",
-    title: "Architectural Wall Finishes",
-    subtitle: "AESTHETIC EXCELLENCE",
-    desc: "Transforming surfaces with polymer-based textures that provide both superior protection and modern visual appeal."
-  },
-  {
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=2070&auto=format&fit=crop",
-    title: "Seamless Floor Solutions",
-    subtitle: "ENGINEERED DURABILITY",
-    desc: "Experience industrial-grade strength meets residential elegance with our advanced self-leveling cement compounds."
-  },
-  {
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2070&auto=format&fit=crop",
-    title: "Modern Polymer Textures",
-    subtitle: "INNOVATIVE FORMULAS",
-    desc: "Our unique cement blends offer flexible application and unmatched resistance to environmental weathering."
-  }
-];
-
 const Home: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 8000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div className="bg-white dark:bg-[#000000] selection:bg-brand-primary selection:text-black">
-      {/* Colorful Hero Carousel */}
+      {/* Static Hero Section (Replaces the Carousel) */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-black">
-        {HERO_SLIDES.map((slide, idx) => (
-          <div
-            key={idx}
-            className={`absolute inset-0 transition-all duration-1000 ease-in-out transform ${
-              idx === currentSlide ? 'opacity-80 dark:opacity-60 scale-100' : 'opacity-0 scale-110'
-            }`}
-          >
-            <img 
-              src={slide.image} 
-              alt="Architectural texture" 
-              className="w-full h-full object-cover animate-slow-pan"
-            />
-            {/* Overlay to ensure text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white/60 dark:from-black/70 via-white/20 dark:via-transparent to-white dark:to-black"></div>
-          </div>
-        ))}
+        <div className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-80 dark:opacity-60 scale-100">
+          <img 
+            src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2070&auto=format&fit=crop" 
+            alt="Architectural texture" 
+            className="w-full h-full object-cover animate-slow-pan"
+          />
+          {/* Overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/60 dark:from-black/70 via-white/20 dark:via-transparent to-white dark:to-black"></div>
+        </div>
 
         <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
           <div className="overflow-hidden mb-6">
             <p className="text-[#00A550] text-[10px] md:text-xs font-bold tracking-ultra-wide uppercase drop-shadow-sm">
-              {HERO_SLIDES[currentSlide].subtitle}
+              AESTHETIC EXCELLENCE
             </p>
           </div>
           
           <h1 className="text-6xl md:text-9xl font-serif text-black dark:text-white leading-[0.85] tracking-tight mb-8 transition-colors duration-500 drop-shadow-md">
-            {HERO_SLIDES[currentSlide].title.split(' ').map((word, i) => (
-              <span key={i} className="block last:text-[#00A550] last:italic">{word}</span>
-            ))}
+            <span className="block">Architectural</span>
+            <span className="block">Wall</span>
+            <span className="block last:text-[#00A550] last:italic">Finishes</span>
           </h1>
 
           <div className="flex justify-center py-6">
@@ -86,7 +41,7 @@ const Home: React.FC = () => {
           </div>
 
           <p className="text-zinc-800 dark:text-zinc-300 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed font-semibold mb-12 drop-shadow-sm">
-            {HERO_SLIDES[currentSlide].desc}
+            Transforming surfaces with polymer-based textures that provide both superior protection and modern visual appeal.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
@@ -97,17 +52,6 @@ const Home: React.FC = () => {
               TECHNICAL DATA
             </Link>
           </div>
-        </div>
-
-        {/* Carousel Indicators */}
-        <div className="absolute bottom-16 flex gap-3 z-20">
-          {HERO_SLIDES.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              className={`h-[2px] transition-all duration-500 ${idx === currentSlide ? 'w-12 bg-[#00A550]' : 'w-4 bg-zinc-400 dark:bg-zinc-800 hover:bg-zinc-600'}`}
-            />
-          ))}
         </div>
       </section>
 

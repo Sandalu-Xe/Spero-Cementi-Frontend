@@ -1,95 +1,175 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, ChevronDown, MapPin, Mail, Phone, Globe } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, MapPin, Mail, Phone, Globe, ChevronDown } from 'lucide-react';
 import Logo from './Logo';
 
-const Footer: React.FC = () => {
-  return (
-    <footer className="bg-[#050a15] border-t border-white/5 pt-20 pb-12 transition-colors duration-500">
-      <div className="container mx-auto px-6 max-w-4xl">
-        {/* Top Section / Brand */}
-        <div className="flex flex-col items-center mb-16 text-center space-y-6">
-          <Link to="/">
-            <Logo className="h-12" />
-          </Link>
-          <p className="text-zinc-500 text-[10px] tracking-[0.3em] uppercase font-bold">
-            Contact
-          </p>
-        </div>
+interface FooterProps {
+  className?: string;
+}
 
-        {/* Sectioned List - Styled like the reference image */}
-        <div className="space-y-0 border-t border-white/10">
-          
-          {/* Quick Links Section */}
-          <div className="group border-b border-white/10">
-            <button className="w-full py-8 flex justify-between items-center text-left group-hover:bg-white/5 transition-colors px-4">
-              <h4 className="text-white text-3xl md:text-4xl font-serif">Quick Links</h4>
-              <ChevronDown className="w-6 h-6 text-white/40 group-hover:text-[#00A550] transition-colors" />
+const Footer: React.FC<FooterProps> = ({ className = "" }) => {
+  const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
+
+  const toggleAccordion = (id: string) => {
+    setActiveAccordion(activeAccordion === id ? null : id);
+  };
+
+  const navLinks = [
+    { name: 'About Spero', path: '/about' },
+    { name: 'Wall Solutions', path: '/services' },
+    { name: 'Floor Finishes', path: '/services' },
+    { name: 'Our Portfolio', path: '/portfolio' },
+    { name: 'Contact Us', path: '/contact' },
+  ];
+
+  return (
+    <footer className={`bg-[#050a15] text-white pt-24 pb-12 transition-all duration-500 border-t border-white/5 ${className}`}>
+      <div className="container mx-auto px-6 lg:px-12">
+        
+        {/* Mobile View: Accordion Concept (from reference image) */}
+        <div className="lg:hidden space-y-4 mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-zinc-400 text-sm font-bold tracking-[0.4em] uppercase">Contact</h3>
+          </div>
+
+          {/* Quick Links Accordion */}
+          <div className="border-b border-white/10">
+            <button 
+              onClick={() => toggleAccordion('quicklinks')}
+              className="w-full py-6 flex justify-between items-center text-left"
+            >
+              <h4 className="text-white text-3xl font-serif">Quick Links</h4>
+              <ChevronDown className={`w-5 h-5 text-white/40 transition-transform duration-300 ${activeAccordion === 'quicklinks' ? 'rotate-180 text-[#00A550]' : ''}`} />
             </button>
-            <div className="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-500 ease-in-out bg-black/20">
-              <div className="px-6 py-8 grid grid-cols-2 md:grid-cols-3 gap-6">
-                <Link to="/about" className="text-zinc-500 hover:text-[#00A550] text-xs font-bold tracking-widest uppercase transition-colors">About</Link>
-                <Link to="/products" className="text-zinc-500 hover:text-[#00A550] text-xs font-bold tracking-widest uppercase transition-colors">Products</Link>
-                <Link to="/portfolio" className="text-zinc-500 hover:text-[#00A550] text-xs font-bold tracking-widest uppercase transition-colors">Portfolio</Link>
-                <Link to="/services" className="text-zinc-500 hover:text-[#00A550] text-xs font-bold tracking-widest uppercase transition-colors">Services</Link>
-                <Link to="/contact" className="text-zinc-500 hover:text-[#00A550] text-xs font-bold tracking-widest uppercase transition-colors">Contact</Link>
+            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeAccordion === 'quicklinks' ? 'max-h-[400px] mb-6' : 'max-h-0'}`}>
+              <div className="flex flex-col space-y-4 pl-1">
+                {navLinks.map((link) => (
+                  <Link key={link.name} to={link.path} className="text-zinc-500 hover:text-[#00A550] text-sm uppercase tracking-widest transition-colors">
+                    {link.name}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Information Section */}
-          <div className="group border-b border-white/10">
-            <button className="w-full py-8 flex justify-between items-center text-left group-hover:bg-white/5 transition-colors px-4">
-              <h4 className="text-white text-3xl md:text-4xl font-serif">Information</h4>
-              <ChevronDown className="w-6 h-6 text-white/40 group-hover:text-[#00A550] transition-colors" />
+          {/* Information Accordion */}
+          <div className="border-b border-white/10">
+            <button 
+              onClick={() => toggleAccordion('info')}
+              className="w-full py-6 flex justify-between items-center text-left"
+            >
+              <h4 className="text-white text-3xl font-serif">Information</h4>
+              <ChevronDown className={`w-5 h-5 text-white/40 transition-transform duration-300 ${activeAccordion === 'info' ? 'rotate-180 text-[#00A550]' : ''}`} />
             </button>
-            <div className="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-500 ease-in-out bg-black/20">
-              <div className="px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeAccordion === 'info' ? 'max-h-[400px] mb-6' : 'max-h-0'}`}>
+              <div className="flex flex-col space-y-6 pl-1 pt-2">
                 <div className="flex gap-4 items-start">
-                  <MapPin className="w-5 h-5 text-[#00A550] shrink-0" />
-                  <p className="text-zinc-400 text-xs leading-relaxed uppercase tracking-widest">
-                    105/1, Madupitiya Road,<br />Mahawila, Panadura, Sri Lanka
+                  <MapPin className="w-5 h-5 text-[#00A550] shrink-0 mt-0.5" />
+                  <p className="text-zinc-500 text-sm leading-relaxed font-light">
+                    105/1, Madupitiya Road, Mahawila,<br />Panadura, Sri Lanka
                   </p>
                 </div>
-                <div className="space-y-4">
-                  <div className="flex gap-4 items-center">
-                    <Phone className="w-5 h-5 text-[#00A550] shrink-0" />
-                    <p className="text-zinc-400 text-xs font-bold tracking-widest">+94 777 982 138</p>
-                  </div>
-                  <div className="flex gap-4 items-center">
-                    <Mail className="w-5 h-5 text-[#00A550] shrink-0" />
-                    <p className="text-zinc-400 text-xs font-bold tracking-widest">MARKETING@SPERO.LK</p>
-                  </div>
+                <div className="flex gap-4 items-center">
+                  <Mail className="w-5 h-5 text-[#00A550] shrink-0" />
+                  <p className="text-zinc-500 text-sm font-light">marketing@spero.lk</p>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Social Presence Section */}
-          <div className="group border-b border-white/10">
-            <button className="w-full py-8 flex justify-between items-center text-left group-hover:bg-white/5 transition-colors px-4">
-              <h4 className="text-white text-3xl md:text-4xl font-serif">Follow Us</h4>
-              <ChevronDown className="w-6 h-6 text-white/40 group-hover:text-[#00A550] transition-colors" />
-            </button>
-            <div className="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-500 ease-in-out bg-black/20">
-              <div className="px-6 py-10 flex gap-8 justify-center">
-                <a href="#" className="p-4 border border-white/5 rounded-full text-zinc-400 hover:bg-[#00A550] hover:text-black hover:border-[#00A550] transition-all duration-500"><Facebook className="w-5 h-5" /></a>
-                <a href="#" className="p-4 border border-white/5 rounded-full text-zinc-400 hover:bg-[#00A550] hover:text-black hover:border-[#00A550] transition-all duration-500"><Twitter className="w-5 h-5" /></a>
-                <a href="#" className="p-4 border border-white/5 rounded-full text-zinc-400 hover:bg-[#00A550] hover:text-black hover:border-[#00A550] transition-all duration-500"><Instagram className="w-5 h-5" /></a>
+                <div className="flex gap-4 items-center">
+                  <Phone className="w-5 h-5 text-[#00A550] shrink-0" />
+                  <p className="text-zinc-500 text-sm font-light">+94 777 702 738</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Legal */}
-        <div className="mt-20 flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/5">
-          <p className="text-[9px] tracking-[0.3em] uppercase text-zinc-600 font-black">
-            © 2024 Spero Solutions (PVT) Ltd.
+        {/* Desktop View: Multi-column Grid */}
+        <div className="hidden lg:grid grid-cols-12 gap-8 mb-20">
+          {/* Column 1: Brand & Social */}
+          <div className="lg:col-span-4 space-y-10">
+            <Link to="/" className="inline-block">
+              <Logo className="h-10" showText={true} />
+            </Link>
+            <p className="text-zinc-500 text-sm leading-relaxed max-w-sm font-light">
+              Innovative architectural finishing solutions for modern residential and commercial spaces. Premium quality meets visionary design.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-[#00A550] hover:text-black hover:border-[#00A550] transition-all duration-300" aria-label="Facebook">
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-[#00A550] hover:text-black hover:border-[#00A550] transition-all duration-300" aria-label="Twitter">
+                <Twitter className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-[#00A550] hover:text-black hover:border-[#00A550] transition-all duration-300" aria-label="Instagram">
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:bg-[#00A550] hover:text-black hover:border-[#00A550] transition-all duration-300" aria-label="LinkedIn">
+                <Linkedin className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Column 2: Quick Links */}
+          <div className="lg:col-span-3 space-y-8">
+            <h4 className="text-2xl font-serif tracking-tight">Quick Links</h4>
+            <div className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <Link key={link.name} to={link.path} className="text-zinc-500 hover:text-[#00A550] text-sm transition-colors">
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Column 3: Get in Touch */}
+          <div className="lg:col-span-5 space-y-8">
+            <h4 className="text-2xl font-serif tracking-tight">Get in Touch</h4>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-10">
+              <div className="flex gap-4 items-start">
+                <MapPin className="w-5 h-5 text-[#00A550] shrink-0 mt-0.5" />
+                <p className="text-zinc-500 text-sm leading-relaxed font-light">
+                  105/1, Madupitiya Road, Mahawila,<br />Panadura, Sri Lanka
+                </p>
+              </div>
+              <div className="flex gap-4 items-center">
+                <Mail className="w-5 h-5 text-[#00A550] shrink-0" />
+                <p className="text-zinc-500 text-sm font-light">marketing@spero.lk</p>
+              </div>
+              <div className="flex gap-4 items-center">
+                <Phone className="w-5 h-5 text-[#00A550] shrink-0" />
+                <p className="text-zinc-500 text-sm font-light">+94 777 702 738</p>
+              </div>
+              <div className="flex gap-4 items-center">
+                <Globe className="w-5 h-5 text-[#00A550] shrink-0" />
+                <p className="text-zinc-500 text-sm font-light">www.spero.lk</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Brand & Social (Mobile Only, shown below accordion) */}
+        <div className="lg:hidden flex flex-col items-center gap-8 mb-16">
+          <Logo className="h-10" showText={true} />
+          <div className="flex gap-6">
+            <a href="#" className="text-zinc-400 hover:text-[#00A550] transition-colors"><Facebook className="w-5 h-5" /></a>
+            <a href="#" className="text-zinc-400 hover:text-[#00A550] transition-colors"><Twitter className="w-5 h-5" /></a>
+            <a href="#" className="text-zinc-400 hover:text-[#00A550] transition-colors"><Instagram className="w-5 h-5" /></a>
+            <a href="#" className="text-zinc-400 hover:text-[#00A550] transition-colors"><Linkedin className="w-5 h-5" /></a>
+          </div>
+        </div>
+
+        {/* Bottom Legal Bar */}
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[10px] tracking-[0.15em] uppercase text-zinc-600 font-bold text-center md:text-left">
+            © 2024 SPERO SOLUTIONS (PVT) LTD. ALL RIGHTS RESERVED.
           </p>
-          <div className="flex gap-8">
-            <a href="#" className="text-[9px] tracking-[0.3em] uppercase text-zinc-600 hover:text-[#00A550] transition-colors font-black">Privacy</a>
-            <a href="#" className="text-[9px] tracking-[0.3em] uppercase text-zinc-600 hover:text-[#00A550] transition-colors font-black">Terms</a>
+          <div className="flex gap-10">
+            <a href="#" className="text-[10px] tracking-[0.15em] uppercase text-zinc-600 hover:text-[#00A550] transition-colors font-bold">
+              PRIVACY POLICY
+            </a>
+            <a href="#" className="text-[10px] tracking-[0.15em] uppercase text-zinc-600 hover:text-[#00A550] transition-colors font-bold">
+              TERMS & CONDITIONS
+            </a>
           </div>
         </div>
       </div>
