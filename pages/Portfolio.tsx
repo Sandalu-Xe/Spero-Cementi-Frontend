@@ -37,14 +37,14 @@ const Portfolio: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="group relative overflow-hidden rounded-sm aspect-[4/5] animate-fade-in border border-zinc-100 dark:border-white/5">
+            <div key={project.id} className="group relative overflow-hidden rounded-md aspect-[4/5] animate-fade-in border border-zinc-100 dark:border-white/5 shadow-lg">
               <img 
                 src={`${project.img}?auto=format&fit=crop&w=800&q=80`} 
                 alt={project.title} 
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-transparent to-transparent opacity-90 p-10 flex flex-col justify-end">
-                <span className="text-[#00A550] text-[10px] font-bold tracking-widest uppercase mb-2">{project.category}</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-white/90 dark:from-black/90 via-transparent to-transparent p-10 flex flex-col justify-end">
+                <span className="text-[#00A550] text-[10px] font-black tracking-widest uppercase mb-2">{project.category}</span>
                 <h3 className="text-black dark:text-white text-2xl font-serif leading-tight">{project.title}</h3>
               </div>
             </div>

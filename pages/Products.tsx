@@ -60,7 +60,7 @@ const Products: React.FC = () => {
                       <img 
                         src={product.image} 
                         alt={product.name} 
-                        className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" 
                       />
                     </div>
                     <div className="p-10 space-y-6">
@@ -103,7 +103,7 @@ const Products: React.FC = () => {
             <div className="max-w-xl text-center md:text-left">
               <h2 className="text-4xl font-serif leading-tight">Need specific technical data sheets for your project?</h2>
             </div>
-            <Link to="/contact" className="bg-black text-[#00A550] px-12 py-5 rounded-md font-bold text-xs tracking-widest hover:bg-white hover:text-black transition-all uppercase whitespace-nowrap shadow-2xl">
+            <Link to="/contact" className="bg-black text-[#00A550] px-12 py-5 rounded-md font-black text-xs tracking-[0.2em] hover:bg-white hover:text-black transition-all uppercase whitespace-nowrap shadow-2xl">
               Download Spec Library
             </Link>
           </div>
