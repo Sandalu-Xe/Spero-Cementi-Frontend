@@ -7,9 +7,39 @@ import {
   Lightbulb, 
   Briefcase, 
   Search,
-  CheckCircle
+  CheckCircle,
+  Clock,
+  ArrowRight,
+  User
 } from 'lucide-react';
-import { getFounderImageUrl, getCoFounderImageUrl, getLogoUrl } from '../components/Logo';
+import { getFounderImageUrl, getCoFounderImageUrl, getLogoUrl, getVisionCenterImageUrl } from '../components/Logo';
+
+const BLOG_POSTS = [
+  {
+    id: 1,
+    date: "Oct 12, 2024",
+    author: "Technical Team",
+    title: "The Future of Sustainable Surfaces in Modern Architecture",
+    excerpt: "How our new polymer-modified formulas are reducing carbon footprints without compromising structural integrity.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    id: 2,
+    date: "Sep 28, 2024",
+    author: "Chamara K.",
+    title: "Choosing the Perfect Texture: A Designer's Guide to Finishes",
+    excerpt: "Understanding the interplay between light and surface texture in luxury residential interiors.",
+    image: "https://images.unsplash.com/photo-1600607687940-477a284e68c6?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    id: 3,
+    date: "Aug 15, 2024",
+    author: "Dr. Laksiri A.",
+    title: "Combatting Tropical Weathering with Advanced Polymers",
+    excerpt: "The science of hydration and curing in high-humidity environments for long-lasting wall protection.",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop"
+  }
+];
 
 const About: React.FC = () => {
   return (
@@ -28,10 +58,10 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. Vision & Mission Graphic Section (Replica of Image) */}
+      {/* 2. Vision & Mission Graphic Section (Updated Centerpiece) */}
       <section className="py-20 bg-zinc-50 dark:bg-zinc-950 overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-0 items-center">
+          <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-center">
             
             {/* Left Column Points */}
             <div className="space-y-24 order-2 lg:order-1">
@@ -68,15 +98,18 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Center Graphic (Smartphone/Logo concept) */}
+            {/* Center Graphic (Replaced Smartphone with Architectural Image) */}
             <div className="order-1 lg:order-2 flex justify-center">
-              <div className="relative w-64 h-[480px] md:w-80 md:h-[580px] bg-[#111] rounded-[40px] border-[6px] border-[#222] shadow-2xl p-4 flex items-center justify-center overflow-hidden">
-                <div className="absolute top-0 w-1/3 h-6 bg-[#222] rounded-b-2xl z-10"></div>
-                <div className="w-full h-full bg-white flex items-center justify-center rounded-[30px] p-8">
-                  <img src={getLogoUrl()} alt="Spero Logo" className="w-full h-auto object-contain transition-transform duration-700 hover:scale-110" />
-                </div>
-                <div className="absolute bottom-4 w-12 h-12 rounded-full border-2 border-[#222] flex items-center justify-center">
-                  <div className="w-10 h-10 rounded-full bg-[#1a1a1a]"></div>
+              <div className="relative w-full max-w-lg aspect-[4/3] rounded-sm overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl group">
+                <img 
+                  src={getVisionCenterImageUrl()} 
+                  alt="Spero Project Showcase" 
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60"></div>
+                {/* Subtle Floating Logo Badge */}
+                <div className="absolute top-4 right-4 w-12 h-12 bg-white/90 dark:bg-black/90 backdrop-blur-md rounded-full flex items-center justify-center p-2 border border-[#00A550]/20">
+                  <img src={getLogoUrl()} alt="Spero Icon" className="w-full h-full object-contain" />
                 </div>
               </div>
             </div>
@@ -121,15 +154,64 @@ const About: React.FC = () => {
         </div>
       </section>
 
+      {/* New Blog Section: Insights & Innovation */}
+      <section className="py-24 lg:py-40 bg-white dark:bg-black border-t border-zinc-100 dark:border-white/5">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+            <div className="max-w-2xl">
+              <p className="text-[#00A550] text-xs font-black tracking-[0.5em] uppercase mb-4">Deep Knowledge</p>
+              <h2 className="text-5xl md:text-7xl font-serif text-black dark:text-white leading-tight">
+                Insights & <span className="italic text-[#00A550]">Innovation</span>
+              </h2>
+            </div>
+            <button className="text-[10px] font-black tracking-widest uppercase border-b-2 border-[#00A550] pb-2 text-[#00A550] hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all">
+              VIEW ALL ARTICLES
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {BLOG_POSTS.map((post) => (
+              <article key={post.id} className="group cursor-pointer">
+                <div className="aspect-[16/10] overflow-hidden rounded-sm mb-8 relative border border-zinc-100 dark:border-zinc-900 shadow-xl">
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" 
+                  />
+                  <div className="absolute top-4 left-4 bg-white/90 dark:bg-black/90 backdrop-blur-md px-4 py-2 rounded-sm border border-[#00A550]/20">
+                    <span className="text-[10px] font-black text-[#00A550] tracking-widest uppercase">{post.date}</span>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 text-zinc-400 text-[10px] font-bold tracking-widest uppercase">
+                    <User className="w-3 h-3 text-[#00A550]" />
+                    {post.author}
+                  </div>
+                  <h3 className="text-2xl font-serif text-black dark:text-white leading-tight group-hover:text-[#00A550] transition-colors duration-500">
+                    {post.title}
+                  </h3>
+                  <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed font-light line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                  <div className="pt-2 flex items-center gap-2 text-[#00A550] text-[10px] font-black tracking-[0.2em] uppercase">
+                    READ ARTICLE <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 3. Leadership Section */}
-      <section className="bg-white dark:bg-black">
+      <section className="bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-100 dark:border-white/5">
         <div className="container mx-auto px-6 lg:px-12 py-24 text-center">
            <p className="text-[#00A550] text-xs font-black tracking-[0.8em] uppercase mb-4">The Team Behind Spero</p>
            <h2 className="text-5xl md:text-7xl font-serif text-black dark:text-white">Our Leadership</h2>
         </div>
 
         {/* Profile 1: Chamara Karunarathna */}
-        <div className="py-24 lg:py-40 overflow-hidden border-t border-zinc-100 dark:border-white/5">
+        <div className="py-24 lg:py-40 bg-white dark:bg-black overflow-hidden border-t border-zinc-100 dark:border-white/5">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
               

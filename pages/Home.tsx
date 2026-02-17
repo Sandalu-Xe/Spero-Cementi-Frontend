@@ -7,7 +7,13 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getHeroBackgroundUrl, getMinimalistVillaUrl, getLoftStudioUrl, getCommercialHallUrl } from '../components/Logo';
+import { 
+  getHeroBackgroundUrl, 
+  getMinimalistVillaUrl, 
+  getLoftStudioUrl, 
+  getCommercialHallUrl,
+  getPerspectiveBackgroundUrl
+} from '../components/Logo';
 
 const HERO_SLIDES = [
   {
@@ -210,7 +216,7 @@ const Home: React.FC = () => {
       {/* CTA Section */}
       <section className="py-60 relative overflow-hidden flex items-center justify-center text-center bg-white dark:bg-black">
         <div className="absolute inset-0 z-0 opacity-40 dark:opacity-40">
-          <img src="https://images.unsplash.com/photo-1542332213-31f87348057f" className="w-full h-full object-cover" alt="Perspective" />
+          <img src={getPerspectiveBackgroundUrl()} className="w-full h-full object-cover" alt="Perspective" />
         </div>
         <div className="relative z-10 space-y-10 px-6">
           <h2 className="text-6xl md:text-9xl font-serif text-black dark:text-white leading-tight drop-shadow-xl">Elevate Your <br/>Perspective.</h2>

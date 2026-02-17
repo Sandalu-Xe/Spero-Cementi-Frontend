@@ -46,6 +46,12 @@ export const getPortfolioImg5Url = () => "https://abnmabkruylcdnczktgt.supabase.
 export const getFounderImageUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/FormatFactoryIMG_1725.jpg";
 export const getCoFounderImageUrl = () => "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"; // Professional executive placeholder
 
+// CTA Background URL
+export const getPerspectiveBackgroundUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/FormatFactory2-1-1024x587%20(1).jpg";
+
+// Vision Section Center Image
+export const getVisionCenterImageUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/28056086_418432938595996_1057231177758578316_n-768x576.jpg";
+
 const Logo: React.FC<LogoProps> = ({ className = "h-10 md:h-12" }) => {
   return (
     <div className={`flex items-center ${className}`}>
