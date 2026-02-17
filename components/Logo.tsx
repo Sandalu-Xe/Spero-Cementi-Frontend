@@ -52,6 +52,15 @@ export const getPerspectiveBackgroundUrl = () => "https://abnmabkruylcdnczktgt.s
 // Vision Section Center Image
 export const getVisionCenterImageUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/28056086_418432938595996_1057231177758578316_n-768x576.jpg";
 
+// Blog Image URLs
+export const getSustainableBlogImageUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/27972321_417634938675796_6527605192364770624_n.png";
+
+// New Content Detail Images for Innovation Section
+export const getInnovationImg1Url = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/28056086_418432938595996_1057231177758578316_n-768x576.jpg";
+export const getInnovationImg2Url = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/28168825_419526858486604_5987704182150092812_n-768x576.jpg";
+export const getInnovationImg3Url = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/28279189_418628328576457_2262342115137255406_n.jpg";
+export const getInnovationImg4Url = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/28276357_418432948595995_6509855256019369069_n-768x576.jpg";
+
 const Logo: React.FC<LogoProps> = ({ className = "h-10 md:h-12" }) => {
   return (
     <div className={`flex items-center ${className}`}>

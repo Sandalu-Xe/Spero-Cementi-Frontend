@@ -12,16 +12,17 @@ import {
   ArrowRight,
   User
 } from 'lucide-react';
-import { getFounderImageUrl, getCoFounderImageUrl, getLogoUrl, getVisionCenterImageUrl } from '../components/Logo';
+import { Link } from 'react-router-dom';
+import { getFounderImageUrl, getCoFounderImageUrl, getLogoUrl, getVisionCenterImageUrl, getSustainableBlogImageUrl } from '../components/Logo';
 
-const BLOG_POSTS = [
+export const BLOG_POSTS = [
   {
     id: 1,
     date: "Oct 12, 2024",
     author: "Technical Team",
     title: "The Future of Sustainable Surfaces in Modern Architecture",
     excerpt: "How our new polymer-modified formulas are reducing carbon footprints without compromising structural integrity.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+    image: getSustainableBlogImageUrl()
   },
   {
     id: 2,
@@ -98,7 +99,7 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Center Graphic (Replaced Smartphone with Architectural Image) */}
+            {/* Center Graphic */}
             <div className="order-1 lg:order-2 flex justify-center">
               <div className="relative w-full max-w-lg aspect-[4/3] rounded-sm overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl group">
                 <img 
@@ -171,33 +172,35 @@ const About: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {BLOG_POSTS.map((post) => (
-              <article key={post.id} className="group cursor-pointer">
-                <div className="aspect-[16/10] overflow-hidden rounded-sm mb-8 relative border border-zinc-100 dark:border-zinc-900 shadow-xl">
-                  <img 
-                    src={post.image} 
-                    alt={post.title} 
-                    className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" 
-                  />
-                  <div className="absolute top-4 left-4 bg-white/90 dark:bg-black/90 backdrop-blur-md px-4 py-2 rounded-sm border border-[#00A550]/20">
-                    <span className="text-[10px] font-black text-[#00A550] tracking-widest uppercase">{post.date}</span>
+              <Link key={post.id} to={`/blog/${post.id}`} className="group cursor-pointer block">
+                <article>
+                  <div className="aspect-[16/10] overflow-hidden rounded-sm mb-8 relative border border-zinc-100 dark:border-zinc-900 shadow-xl">
+                    <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" 
+                    />
+                    <div className="absolute top-4 left-4 bg-white/90 dark:bg-black/90 backdrop-blur-md px-4 py-2 rounded-sm border border-[#00A550]/20">
+                      <span className="text-[10px] font-black text-[#00A550] tracking-widest uppercase">{post.date}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 text-zinc-400 text-[10px] font-bold tracking-widest uppercase">
-                    <User className="w-3 h-3 text-[#00A550]" />
-                    {post.author}
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-zinc-400 text-[10px] font-bold tracking-widest uppercase">
+                      <User className="w-3 h-3 text-[#00A550]" />
+                      {post.author}
+                    </div>
+                    <h3 className="text-2xl font-serif text-black dark:text-white leading-tight group-hover:text-[#00A550] transition-colors duration-500">
+                      {post.title}
+                    </h3>
+                    <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed font-light line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                    <div className="pt-2 flex items-center gap-2 text-[#00A550] text-[10px] font-black tracking-[0.2em] uppercase">
+                      READ ARTICLE <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-serif text-black dark:text-white leading-tight group-hover:text-[#00A550] transition-colors duration-500">
-                    {post.title}
-                  </h3>
-                  <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed font-light line-clamp-2">
-                    {post.excerpt}
-                  </p>
-                  <div className="pt-2 flex items-center gap-2 text-[#00A550] text-[10px] font-black tracking-[0.2em] uppercase">
-                    READ ARTICLE <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
-                  </div>
-                </div>
-              </article>
+                </article>
+              </Link>
             ))}
           </div>
         </div>
