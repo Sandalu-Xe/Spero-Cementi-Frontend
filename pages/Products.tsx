@@ -63,85 +63,94 @@ export const PRODUCT_DATA = [
 
 const Products: React.FC = () => {
   return (
-    <div className="bg-white dark:bg-[#050505] min-h-screen transition-colors duration-500 selection:bg-[#00A550] selection:text-black">
-      {/* Background Subtle Texture */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05] z-0">
-        <div className="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+    <div className="bg-white dark:bg-[#020202] min-h-screen transition-colors duration-500 selection:bg-[#00A550] selection:text-black">
+      {/* Background Subtle Grain Texture */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.04] z-0">
+        <div className="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')]"></div>
       </div>
 
-      <div className="relative z-10 pt-20">
-        {/* Header Hero */}
-        <section className="py-20 md:py-28">
-          <div className="container mx-auto px-6 lg:px-12 text-center">
-            <p className="text-[#00A550] text-[10px] font-black tracking-[0.8em] uppercase mb-6">ARCHITECTURAL SOLUTIONS</p>
-            <h1 className="text-5xl md:text-8xl font-serif text-black dark:text-white leading-none mb-10 tracking-tighter">
+      <div className="relative z-10 pt-16">
+        {/* Hero Section with Deliberately Smaller Font for Elegance */}
+        <section className="py-24 md:py-32 flex flex-col items-center">
+          <div className="container mx-auto px-6 text-center max-w-4xl">
+            {/* Top Label: Tiny, Wide Tracking */}
+            <p className="text-[#00A550] text-[8px] font-bold tracking-[1em] uppercase mb-10 opacity-80">
+              ARCHITECTURAL SOLUTIONS
+            </p>
+            
+            {/* Main Title: Small Scale Serif */}
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-black dark:text-white leading-tight tracking-tighter mb-12">
               The <span className="text-[#00A550] italic font-normal">Collection</span>
             </h1>
-            <div className="h-[1px] w-24 bg-zinc-800 mx-auto opacity-50 mb-10"></div>
+            
+            {/* Minimalist Divider */}
+            <div className="h-[1px] w-12 bg-zinc-800 mx-auto opacity-20"></div>
           </div>
         </section>
 
-        {/* Categories Section */}
-        <div className="pb-40">
-          {PRODUCT_DATA.map((category, idx) => (
-            <div key={idx} className="mb-40 last:mb-0">
-              
-              {/* Grid Layout - 3 Columns on Desktop */}
+        {/* Product Listing */}
+        <div className="pb-48">
+          {PRODUCT_DATA.map((category, catIdx) => (
+            <div key={catIdx} className="mb-32 last:mb-0">
               <div className="container mx-auto px-6 lg:px-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-24">
                   {category.items.map((product) => (
                     <div 
                       key={product.id} 
                       className="group flex flex-col bg-transparent transition-all duration-700"
                     >
-                      {/* IMAGE STAGE - High Contrast with Radial Shadow */}
-                      <Link to={`/products/${product.id}`} className="aspect-[1/1.2] bg-[#0c0c0c] dark:bg-[#070707] flex items-center justify-center relative overflow-hidden p-16 rounded-sm mb-12 border border-zinc-900 shadow-inner">
-                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-white/5 pointer-events-none"></div>
+                      {/* Product Presentation Stage */}
+                      <Link 
+                        to={`/products/${product.id}`} 
+                        className="aspect-[1/1.15] bg-[#070707] flex items-center justify-center relative overflow-hidden p-12 rounded-sm mb-10 border border-zinc-900 shadow-2xl transition-all duration-500 hover:border-[#00A550]/20"
+                      >
+                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-zinc-500/5 pointer-events-none"></div>
+                        
                         <img 
                           src={product.image} 
                           alt={product.name} 
-                          className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-110 drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)]" 
+                          className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105 drop-shadow-[0_35px_60px_rgba(0,0,0,0.8)]" 
                         />
                       </Link>
 
-                      {/* CONTENT BLOCK - Precise Style from Screenshot */}
-                      <div className="flex-grow flex flex-col px-2">
-                        <div className="flex justify-between items-start mb-6">
-                          <div className="space-y-4 max-w-[80%]">
-                            {/* Product Code: Small, wide-spaced, uppercase */}
-                            <span className="text-[9px] font-black tracking-[0.5em] text-zinc-500 uppercase block">
+                      {/* Info Block with Refined Small Typography */}
+                      <div className="flex-grow flex flex-col px-1">
+                        <div className="flex justify-between items-start mb-5">
+                          <div className="space-y-3 max-w-[85%]">
+                            {/* Product Code: Ultra Micro */}
+                            <span className="text-[7px] font-black tracking-[0.6em] text-zinc-600 uppercase block">
                               {product.code}
                             </span>
                             <Link to={`/products/${product.id}`}>
-                              {/* Title: Playfair Serif, featured green or white */}
-                              <h3 className={`text-4xl md:text-5xl font-serif leading-[1.1] transition-all duration-500 ${product.isFeatured ? 'text-[#00A550]' : 'text-black dark:text-white group-hover:text-[#00A550]'}`}>
+                              {/* Title: Small but sophisticated serif (text-xl/2xl) */}
+                              <h3 className={`text-xl md:text-2xl font-serif leading-tight transition-all duration-500 ${product.isFeatured ? 'text-[#00A550]' : 'text-black dark:text-white group-hover:text-[#00A550]'}`}>
                                 {product.name}
                               </h3>
                             </Link>
                           </div>
                           
-                          {/* SQUARE ICON BOX - As seen in screenshot */}
-                          <div className="bg-[#111111] p-4 rounded-sm border border-zinc-800 text-[#00A550] shadow-xl transition-all duration-500 group-hover:border-[#00A550]/40">
-                            <Layers className="w-6 h-6" />
+                          {/* SQUARE ICON BOX: Minimal footprint */}
+                          <div className="bg-[#0f0f0f] p-4 rounded-sm border border-zinc-800 text-[#00A550] shadow-xl transition-all duration-500 group-hover:border-[#00A550]/30">
+                            <Layers className="w-5 h-5" />
                           </div>
                         </div>
                         
-                        {/* Description: Elegant small-ish font */}
-                        <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed font-light mb-12 max-w-[95%]">
+                        {/* Description: Micro-text scale for density and luxury feel */}
+                        <p className="text-zinc-600 dark:text-zinc-500 text-[13px] md:text-[14px] leading-relaxed font-light mb-10 line-clamp-3 max-w-[90%]">
                           {product.desc}
                         </p>
 
-                        {/* Visual Footer */}
-                        <div className="pt-8 flex items-center justify-between border-t border-zinc-100 dark:border-zinc-900">
-                          <div className="flex gap-6">
-                             <Shield className="w-5 h-5 text-zinc-700 dark:text-zinc-400 hover:text-[#00A550] transition-colors" />
-                             <Leaf className="w-5 h-5 text-zinc-700 dark:text-zinc-400 hover:text-[#00A550] transition-colors" />
+                        {/* Minimalist Card Footer */}
+                        <div className="pt-6 flex items-center justify-between border-t border-zinc-100 dark:border-zinc-900/40">
+                          <div className="flex gap-5 opacity-30 group-hover:opacity-100 transition-opacity">
+                             <Shield className="w-4 h-4 text-zinc-400 hover:text-[#00A550] transition-colors" />
+                             <Leaf className="w-4 h-4 text-zinc-400 hover:text-[#00A550] transition-colors" />
                           </div>
                           <Link 
                             to={`/products/${product.id}`} 
-                            className="text-[#00A550] text-[10px] font-black tracking-[0.2em] uppercase flex items-center gap-3 group/link hover:text-black dark:hover:text-white transition-all"
+                            className="text-[#00A550] text-[8px] font-black tracking-[0.3em] uppercase flex items-center gap-2 group/link hover:text-black dark:hover:text-white transition-all"
                           >
-                            DETAILS <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-2" />
+                            DETAILS <ArrowRight className="w-3 h-3 transition-transform group-hover/link:translate-x-1.5" />
                           </Link>
                         </div>
                       </div>
@@ -153,18 +162,16 @@ const Products: React.FC = () => {
           ))}
         </div>
 
-        {/* Technical Mastery CTA */}
-        <section className="py-32 bg-[#020202] border-t border-zinc-900">
-          <div className="container mx-auto px-6 lg:px-12 text-center max-w-4xl">
-             <div className="inline-block p-6 bg-[#00A550]/5 rounded-full mb-10">
-                <Shield className="w-10 h-10 text-[#00A550]" />
-             </div>
-             <h2 className="text-4xl md:text-6xl font-serif text-white mb-8 tracking-tight">Technical Excellence.</h2>
-             <p className="text-zinc-500 text-lg md:text-xl font-light leading-relaxed mb-12">
-               Our formulas are precision-engineered to meet the rigorous demands of modern luxury architecture, ensuring every surface reflects your vision with uncompromising longevity.
+        {/* REFINED BOTTOM CTA: Matching the smaller font aesthetic */}
+        <section className="py-40 bg-[#010101] border-t border-zinc-900">
+          <div className="container mx-auto px-6 text-center max-w-2xl">
+             <p className="text-[#00A550] text-[8px] font-bold tracking-[1em] uppercase mb-8 opacity-70">EXCELLENCE DEFINED</p>
+             <h2 className="text-2xl md:text-4xl font-serif text-white mb-8 tracking-tight">Technical Mastery.</h2>
+             <p className="text-zinc-600 text-[13px] md:text-[15px] font-light leading-relaxed mb-12 max-w-lg mx-auto">
+               Engineered to meet the rigorous demands of modern luxury architecture, ensuring every surface reflects your vision with precision.
              </p>
-             <Link to="/contact" className="inline-block bg-[#00A550] text-black px-12 py-6 rounded-sm font-black text-[11px] tracking-widest hover:bg-white transition-all transform hover:-translate-y-1 uppercase shadow-2xl">
-                DOWNLOAD FULL TECHNICAL CATALOG
+             <Link to="/contact" className="inline-block bg-[#00A550] text-black px-10 py-5 rounded-sm font-black text-[9px] tracking-[0.4em] hover:bg-white transition-all transform hover:-translate-y-0.5 uppercase shadow-xl">
+                DOWNLOAD CATALOG
              </Link>
           </div>
         </section>
