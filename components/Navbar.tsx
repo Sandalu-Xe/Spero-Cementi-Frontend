@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Globe, Moon, Sun, ChevronDown, MapPin, Mail, Phone, Globe as GlobeIcon } from 'lucide-react';
@@ -41,11 +40,12 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, isDark, setI
     <>
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b border-white/5 ${isScrolled ? 'bg-black/95 backdrop-blur-md py-4' : 'bg-black/80 py-6 md:py-8'}`}>
         <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
-          <Link to="/" className="group">
+          {/* Logo on the LEFT SIDE CONNER */}
+          <Link to="/" className="group flex-shrink-0">
             <Logo className="h-10 md:h-12" />
           </Link>
 
-          {/* Desktop Links */}
+          {/* Navigation Links and CTA on the RIGHT SIDE */}
           <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
@@ -59,32 +59,31 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, isDark, setI
                 <span className={`absolute -bottom-2 left-1/2 -translate-x-1/2 h-[1px] bg-[#00A550] transition-all duration-300 ${isActive(link.path) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
               </Link>
             ))}
-          </div>
-
-          <div className="hidden lg:flex items-center gap-8">
+            
+            <div className="h-6 w-[1px] bg-white/10 mx-2"></div>
+            
             <Link to="/contact" className="bg-[#00A550] text-black px-10 py-3 rounded-md text-[11px] font-black tracking-widest hover:bg-white hover:text-black transition-all transform hover:scale-105 shadow-[0_10px_20px_rgba(0,165,80,0.15)] uppercase">
               ENQUIRE
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile Toggle on the right in mobile */}
           <button className="lg:hidden text-white p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay (Fade in instead of slide) */}
+      {/* Mobile Menu Overlay */}
       <div 
         className={`lg:hidden fixed inset-0 z-[100] transition-all duration-500 ${
           isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
         <div className="absolute inset-0 bg-[#050a15] p-8 flex flex-col h-full overflow-y-auto">
-          {/* Mobile Header - Exactly as image */}
           <div className="flex justify-between items-center mb-8">
              <Link to="/" onClick={() => setIsMenuOpen(false)}>
-                <Logo className="h-10" showText={false} />
+                <Logo className="h-10" />
              </Link>
              <button onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#00A550] transition-colors">
                 <X className="w-8 h-8 font-light" />
@@ -92,12 +91,10 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, isDark, setI
           </div>
 
           <div className="text-center mb-16">
-            <p className="text-zinc-500 text-[10px] font-bold tracking-[0.6em] uppercase">CONTACT</p>
+            <p className="text-zinc-500 text-[10px] font-bold tracking-[0.6em] uppercase">MENU</p>
           </div>
 
-          {/* Accordion Layout Grid - Exactly as image */}
           <div className="space-y-4 px-2">
-            {/* Quick Links Section */}
             <div className="border-b border-white/5">
               <button 
                 onClick={() => toggleSection('quicklinks')}
@@ -124,7 +121,6 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, isDark, setI
               </div>
             </div>
 
-            {/* Information Section */}
             <div className="border-b border-white/5">
               <button 
                 onClick={() => toggleSection('info')}
@@ -154,24 +150,16 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, isDark, setI
             </div>
           </div>
 
-          {/* Theme Toggle Area - Exactly as image */}
           <div className="mt-auto py-12 flex justify-center items-center gap-16">
-              <button 
-                onClick={() => setIsDark(true)}
-                className={`transition-all duration-500 ${isDark ? 'text-[#00A550] scale-125' : 'text-zinc-700'}`}
-              >
+              <button onClick={() => setIsDark(true)} className={`transition-all duration-500 ${isDark ? 'text-[#00A550] scale-125' : 'text-zinc-700'}`}>
                 <Moon className="w-6 h-6" />
               </button>
               <div className="w-[1px] h-10 bg-white/10"></div>
-              <button 
-                onClick={() => setIsDark(false)}
-                className={`transition-all duration-500 ${!isDark ? 'text-[#00A550] scale-125' : 'text-zinc-700'}`}
-              >
+              <button onClick={() => setIsDark(false)} className={`transition-all duration-500 ${!isDark ? 'text-[#00A550] scale-125' : 'text-zinc-700'}`}>
                 <Sun className="w-6 h-6" />
               </button>
           </div>
 
-          {/* Mobile Footer Button - Exactly as image */}
           <div className="mt-4">
             <Link 
               to="/contact" 

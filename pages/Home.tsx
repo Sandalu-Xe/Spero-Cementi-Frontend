@@ -7,16 +7,17 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getHeroBackgroundUrl } from '../components/Logo';
 
 const HERO_SLIDES = [
   {
-    image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2070&auto=format&fit=crop",
+    image: getHeroBackgroundUrl(),
     topLabel: "AESTHETIC EXCELLENCE",
     title: ["Architectural", "Wall", "Finishes"],
     description: "Transforming surfaces with polymer-based textures that provide both superior protection and modern visual appeal."
   },
   {
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2070&auto=format&fit=crop",
     topLabel: "INDUSTRIAL STRENGTH",
     title: ["Premium", "Floor", "Mastery"],
     description: "Seamless, high-durability flooring solutions designed for modern residential luxury and demanding commercial spaces."
@@ -51,7 +52,7 @@ const Home: React.FC = () => {
     setTimeout(() => {
       setCurrentIndex(index);
       setIsTransitioning(false);
-    }, 800); // Half of the transition time for a smooth overlap
+    }, 800); 
   };
 
   const currentSlide = HERO_SLIDES[currentIndex];
@@ -81,7 +82,7 @@ const Home: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-white/60 dark:from-black/70 via-white/20 dark:via-transparent to-white dark:to-black"></div>
         </div>
 
-        {/* Hero Content - Synchronized with currentSlide */}
+        {/* Hero Content - Synchronized with currentSlide text */}
         <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
           <div className="overflow-hidden mb-6">
             <p className={`text-[#00A550] text-[10px] md:text-xs font-bold tracking-ultra-wide uppercase drop-shadow-sm transition-all duration-1000 ${isTransitioning ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`}>
