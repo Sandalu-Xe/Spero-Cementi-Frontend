@@ -1,5 +1,11 @@
-
 import React, { useState } from 'react';
+import { 
+  getPortfolioVillaUrl, 
+  getPortfolioImg2Url, 
+  getPortfolioImg3Url, 
+  getPortfolioImg4Url, 
+  getPortfolioImg5Url 
+} from '../components/Logo';
 
 const Portfolio: React.FC = () => {
   const [filter, setFilter] = useState('All');
@@ -7,12 +13,12 @@ const Portfolio: React.FC = () => {
   const categories = ['All', 'Wall Finishes', 'Floor Finishes', 'Full Commercial'];
 
   const projects = [
-    { id: 1, title: "Modern Minimalist Villa", category: "Wall Finishes", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" },
-    { id: 2, title: "Industrial Loft Floor", category: "Floor Finishes", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" },
-    { id: 3, title: "Boutique Hotel Lobby", category: "Full Commercial", img: "https://images.unsplash.com/photo-1542332213-31f87348057f" },
-    { id: 4, title: "Exterior Facade System", category: "Wall Finishes", img: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85" },
-    { id: 5, title: "Seamless Office Flooring", category: "Floor Finishes", img: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6" },
-    { id: 6, title: "Luxury Resort Terraces", category: "Full Commercial", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c" },
+    { id: 1, title: "Modern Minimalist Villa", category: "Wall Finishes", img: getPortfolioVillaUrl() },
+    { id: 2, title: "Industrial Loft Floor", category: "Floor Finishes", img: getPortfolioImg2Url() },
+    { id: 3, title: "Boutique Hotel Lobby", category: "Full Commercial", img: getPortfolioImg3Url() },
+    { id: 4, title: "Exterior Facade System", category: "Wall Finishes", img: getPortfolioImg4Url() },
+    { id: 5, title: "Seamless Office Flooring", category: "Floor Finishes", img: getPortfolioImg5Url() },
+    { id: 6, title: "Luxury Resort Terraces", category: "Full Commercial", img: getPortfolioVillaUrl() }, // Repeating first as 5 were provided for 6 slots
   ];
 
   const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
@@ -39,7 +45,7 @@ const Portfolio: React.FC = () => {
           {filteredProjects.map((project) => (
             <div key={project.id} className="group relative overflow-hidden rounded-md aspect-[4/5] animate-fade-in border border-zinc-100 dark:border-white/5 shadow-lg">
               <img 
-                src={`${project.img}?auto=format&fit=crop&w=800&q=80`} 
+                src={project.img} 
                 alt={project.title} 
                 className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" 
               />

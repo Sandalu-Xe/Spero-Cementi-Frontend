@@ -11,6 +11,37 @@ export const getLogoUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storag
 // Function to get the hero background image URL
 export const getHeroBackgroundUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/16299883_254706704968621_1430825952678203593_o-1-1024x683.jpg";
 
+// Function to get the Spero Skim Coat product image URL
+export const getSkimCoatUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/3D-SB700.png";
+
+// Function to get the Spero Polymer-Modified Cement product image URL
+export const getPolymerCementUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/3D-SF150-PNG.png";
+
+// Function to get the Spero White Tile Premium Adhesive product image URL
+export const getTileAdhesiveUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/White-tile-premiurm-adesive-SB-400.png";
+
+// Function to get the Spero Sealer product image URL
+export const getFloorSealerUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/SPERo-Sealer-1024x1024.jpg";
+
+// Function to get the Spero Cement Bond product image URL
+export const getCementBondUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/SPERo-Cement-Bond-1024x1024.jpg";
+
+// Function to get the Minimalist Villa portfolio image URL
+export const getMinimalistVillaUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/FormatFactory6-1-1024x587.jpg";
+
+// Function to get the Loft Studio portfolio image URL
+export const getLoftStudioUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/16299883_254706704968621_1430825952678203593_o-1-1024x683.jpg";
+
+// Function to get the Commercial Hall portfolio image URL
+export const getCommercialHallUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/FormatFactory1-1024x587.jpg";
+
+// Portfolio Page specific helper functions
+export const getPortfolioVillaUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/FormatFactory6-1024x587%20(1).jpg";
+export const getPortfolioImg2Url = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/FormatFactory3-1-1024x587.jpg";
+export const getPortfolioImg3Url = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/FormatFactory2-1024x587.jpg";
+export const getPortfolioImg4Url = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/FormatFactory1-1024x587.jpg";
+export const getPortfolioImg5Url = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/FormatFactory2-1-1024x587%20(1).jpg";
+
 const Logo: React.FC<LogoProps> = ({ className = "h-10 md:h-12" }) => {
   return (
     <div className={`flex items-center ${className}`}>

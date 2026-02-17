@@ -7,7 +7,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getHeroBackgroundUrl } from '../components/Logo';
+import { getHeroBackgroundUrl, getMinimalistVillaUrl, getLoftStudioUrl, getCommercialHallUrl } from '../components/Logo';
 
 const HERO_SLIDES = [
   {
@@ -147,7 +147,7 @@ const Home: React.FC = () => {
           {/* Main Large Image */}
           <Link to="/portfolio" className="md:col-span-8 relative overflow-hidden group aspect-video md:aspect-auto border border-zinc-100 dark:border-zinc-900 shadow-xl rounded-md">
             <img 
-              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" 
+              src={getMinimalistVillaUrl()} 
               className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
               alt="Minimalist Villa" 
             />
@@ -163,7 +163,7 @@ const Home: React.FC = () => {
             {/* Side Image 1 */}
             <Link to="/portfolio" className="relative overflow-hidden group border border-zinc-100 dark:border-zinc-900 shadow-lg rounded-md">
               <img 
-                src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" 
+                src={getLoftStudioUrl()} 
                 className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
                 alt="Loft Studio" 
               />
@@ -178,7 +178,7 @@ const Home: React.FC = () => {
             {/* Side Image 2 */}
             <Link to="/portfolio" className="relative overflow-hidden group border border-zinc-100 dark:border-zinc-900 shadow-lg rounded-md">
               <img 
-                src="https://images.unsplash.com/photo-1581850518616-bcb8186c39ea" 
+                src={getCommercialHallUrl()} 
                 className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
                 alt="Commercial Hall" 
               />

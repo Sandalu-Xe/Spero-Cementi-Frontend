@@ -1,7 +1,7 @@
-
 import React from 'react';
-import { Layers, Shield, ArrowUpRight, Leaf, Zap, Award } from 'lucide-react';
+import { Layers, Shield, Leaf, Zap, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getSkimCoatUrl, getPolymerCementUrl, getTileAdhesiveUrl, getFloorSealerUrl, getCementBondUrl } from '../components/Logo';
 
 export const PRODUCT_DATA = [
   {
@@ -12,7 +12,7 @@ export const PRODUCT_DATA = [
         name: "Spero Skim Coat", 
         code: "SP-SK100", 
         desc: "Premium quality brilliant white colour wall putty. Engineered with advanced technology for an ultra-smooth, flawless finish. Eco-friendly and highly economical for large scale luxury projects.", 
-        image: "https://images.unsplash.com/photo-1621815124039-4971c0800361?q=80&w=800",
+        image: getSkimCoatUrl(),
         specs: {
           color: "Brilliant White",
           coverage: "1.2kg / m² per mm thickness",
@@ -25,7 +25,7 @@ export const PRODUCT_DATA = [
         name: "Spero Polymer-Modified Cement", 
         code: "SP-WC102", 
         desc: "Ultra-flexible decorative coating for interior luxury walls. Ideal for high-traffic areas requiring superior adhesion and crack resistance.", 
-        image: "https://images.unsplash.com/photo-1594913785162-e6785b4ad3a2?q=80&w=800",
+        image: getPolymerCementUrl(),
         specs: {
           color: "Custom Tints",
           coverage: "0.8kg / m²",
@@ -34,16 +34,16 @@ export const PRODUCT_DATA = [
         }
       },
       { 
-        id: "venetian-mineral",
-        name: "Spero Venetian Mineral", 
-        code: "SP-VM205", 
-        desc: "Traditional smooth mineral texture with modern longevity. Breathable material that resists fungal growth naturally.", 
-        image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=800",
+        id: "premium-adhesive",
+        name: "Spero White Tile Premium Adhesive", 
+        code: "SP-SB400", 
+        desc: "High-performance brilliant white tile adhesive designed for premium tiling projects. Exceptional bonding strength for luxury wall and floor installations.", 
+        image: getTileAdhesiveUrl(),
         specs: {
-          color: "Mineral Tones",
-          coverage: "1.0kg / m²",
-          packaging: "20kg buckets",
-          potLife: "N/A (Premixed)"
+          color: "Brilliant White",
+          coverage: "3-5kg / m²",
+          packaging: "25kg bags",
+          potLife: "2 Hours"
         }
       },
     ]
@@ -52,29 +52,29 @@ export const PRODUCT_DATA = [
     title: "Floor Mastery Compounds",
     items: [
       { 
-        id: "self-leveling",
-        name: "Spero Self-Leveling Industrial", 
-        code: "SP-FL400", 
-        desc: "Rapid-curing heavy duty floor compound. Perfect for creating perfectly flat surfaces with high compressive strength in record time.", 
-        image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800",
+        id: "floor-sealer",
+        name: "Spero Protective Floor Sealer", 
+        code: "SP-FS500", 
+        desc: "Advanced protective coating for various floor surfaces. Provides a durable, chemical-resistant barrier that enhances the natural appearance of the substrate while preventing staining.", 
+        image: getFloorSealerUrl(),
         specs: {
-          color: "Industrial Grey",
-          coverage: "1.7kg / m² per mm",
-          packaging: "25kg bags",
-          potLife: "30-45 Minutes"
+          color: "Clear Gloss",
+          coverage: "8-12m² / L",
+          packaging: "5L / 20L containers",
+          potLife: "N/A (Single Pack)"
         }
       },
       { 
-        id: "polished-concrete",
-        name: "Spero Polished Concrete Gloss", 
-        code: "SP-PG601", 
-        desc: "Mirror-finish gloss enhancement for refined commercial spaces. Dust-proof, chemical resistant, and exceptionally easy to maintain.", 
-        image: "https://images.unsplash.com/photo-1581850518616-bcb8186c39ea?q=80&w=800",
+        id: "cement-bond",
+        name: "Spero Ultra Cement Bond", 
+        code: "SP-CB300", 
+        desc: "High-strength bonding agent for cementitious repairs and floor leveling. Significantly improves adhesion, water resistance, and tensile strength of mortar and concrete mixes.", 
+        image: getCementBondUrl(),
         specs: {
-          color: "High Gloss Clear",
-          coverage: "10-12m² / L",
-          packaging: "5L / 20L containers",
-          potLife: "8 Hours"
+          color: "Milky White (Dries Clear)",
+          coverage: "0.2 - 0.4L / m²",
+          packaging: "5L / 20L / 200L",
+          potLife: "2 Hours (Mixed)"
         }
       },
     ]
@@ -117,18 +117,13 @@ const Products: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {category.items.map((product, pIdx) => (
                   <div key={pIdx} className="group flex flex-col relative overflow-hidden bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 rounded-md hover:border-[#00A550]/50 transition-all duration-500 shadow-xl">
-                    {/* Image Container - Clickable */}
+                    {/* Image Container - Clickable Link but no visual "View Details" overlay */}
                     <Link to={`/products/${product.id}`} className="aspect-[4/3] overflow-hidden relative block">
                       <img 
                         src={product.image} 
                         alt={product.name} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" 
+                        className="w-full h-full object-contain p-8 group-hover:scale-110 transition-all duration-1000 bg-zinc-50 dark:bg-zinc-900/50" 
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                        <span className="bg-white/90 text-black px-6 py-2 rounded-full text-[10px] font-black tracking-widest uppercase transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                          VIEW DETAILS
-                        </span>
-                      </div>
                     </Link>
 
                     {/* Content Container */}
