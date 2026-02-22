@@ -24,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, isDark, setI
   const navLinks = [
     { name: 'HOME', path: '/' },
     { name: 'ABOUT', path: '/about' },
-    { name: 'PRODUCT', path: '/products' },
+    { name: 'PRODUCTS', path: '/products' },
     { name: 'PORTFOLIO', path: '/portfolio' },
     { name: 'SERVICES', path: '/services' },
     { name: 'CONTACT', path: '/contact' },

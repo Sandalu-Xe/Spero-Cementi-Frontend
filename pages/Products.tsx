@@ -102,14 +102,14 @@ const Products: React.FC = () => {
                       {/* Product Presentation Stage */}
                       <Link 
                         to={`/products/${product.id}`} 
-                        className="aspect-[1/1.15] bg-[#070707] flex items-center justify-center relative overflow-hidden p-12 rounded-sm mb-10 border border-zinc-900 shadow-2xl transition-all duration-500 hover:border-[#00A550]/20"
+                        className="aspect-[1/1.15] bg-zinc-50 dark:bg-zinc-900/30 flex items-center justify-center relative overflow-hidden p-12 rounded-sm mb-10 border border-zinc-100 dark:border-zinc-800 shadow-xl transition-all duration-500 hover:border-[#00A550]/20"
                       >
                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-zinc-500/5 pointer-events-none"></div>
                         
                         <img 
                           src={product.image} 
                           alt={product.name} 
-                          className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105 drop-shadow-[0_35px_60px_rgba(0,0,0,0.8)]" 
+                          className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105 drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_20px_30px_rgba(0,0,0,0.4)]" 
                         />
                       </Link>
 

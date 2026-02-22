@@ -58,11 +58,11 @@ const ProductDetails: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
             {/* Visual Column */}
             <div className="lg:col-span-7">
-              <div className="relative group rounded-xl overflow-hidden shadow-2xl border border-zinc-100 dark:border-zinc-900">
+              <div className="relative group rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-900/30 shadow-xl border border-zinc-100 dark:border-zinc-900 p-12">
                 <img 
                   src={product.image} 
                   alt={product.name} 
-                  className="w-full h-[600px] object-cover" 
+                  className="w-full h-[500px] object-contain transition-transform duration-1000 group-hover:scale-105 drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_20px_30px_rgba(0,0,0,0.4)]" 
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-12 bg-gradient-to-t from-black/80 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                    <p className="text-sm font-light leading-relaxed max-w-md">Actual application result of {product.name} in a premium architectural project.</p>
@@ -138,9 +138,9 @@ const ProductDetails: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 {/* Just show a few other products from the same category or overall */}
                 {PRODUCT_DATA[0].items.filter(i => i.id !== productId).slice(0, 3).map((item, idx) => (
-                   <Link key={idx} to={`/products/${item.id}`} className="group space-y-6">
-                      <div className="aspect-square overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-800">
-                        <img src={item.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={item.name} />
+                    <Link key={idx} to={`/products/${item.id}`} className="group space-y-6">
+                      <div className="aspect-square overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/30 p-8 flex items-center justify-center shadow-lg transition-all duration-500 hover:border-[#00A550]/30">
+                        <img src={item.image} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-md" alt={item.name} />
                       </div>
                       <div className="space-y-1">
                         <span className="text-[#00A550] text-[10px] font-black uppercase tracking-widest">{item.code}</span>
