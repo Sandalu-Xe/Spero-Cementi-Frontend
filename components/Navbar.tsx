@@ -38,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, isDark, setI
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b border-white/5 ${isScrolled ? 'bg-black/95 backdrop-blur-md py-4' : 'bg-black/80 py-6 md:py-8'}`}>
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b border-white/5 ${isScrolled ? 'bg-black backdrop-blur-md py-4' : 'bg-black py-6 md:py-8'}`}>
         <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
           {/* Logo on the LEFT SIDE CONNER */}
           <Link to="/" className="group flex-shrink-0">
@@ -80,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, isDark, setI
           isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <div className="absolute inset-0 bg-[#050a15] p-8 flex flex-col h-full overflow-y-auto">
+        <div className="absolute inset-0 bg-black p-8 flex flex-col h-full overflow-y-auto">
           <div className="flex justify-between items-center mb-8">
              <Link to="/" onClick={() => setIsMenuOpen(false)}>
                 <Logo className="h-10" />
