@@ -14,6 +14,8 @@ import {
   getCommercialHallUrl,
   getPerspectiveBackgroundUrl
 } from '../components/Logo';
+import FadeIn from '../components/FadeIn';
+import RevealWords from '../components/RevealWords';
 
 const HERO_SLIDES = [
   {
@@ -141,60 +143,73 @@ const Home: React.FC = () => {
       <section className="py-40 container mx-auto px-6 lg:px-12 bg-white dark:bg-black">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
           <div className="max-w-xl">
-            <p className="text-[#00A550] text-[10px] font-bold tracking-ultra-wide uppercase mb-6">Portfolio Visualization</p>
-            <h2 className="text-5xl md:text-7xl font-serif text-black dark:text-white">Concrete Mastery</h2>
+            <FadeIn delay={0.1}>
+              <p className="text-[#00A550] text-[10px] font-bold tracking-ultra-wide uppercase mb-6">Portfolio Visualization</p>
+            </FadeIn>
+            <RevealWords 
+              text="Concrete Mastery" 
+              className="text-5xl md:text-7xl font-serif text-black dark:text-white" 
+            />
           </div>
-          <Link to="/portfolio" className="text-[#00A550] text-[10px] font-bold tracking-widest uppercase border-b border-[#00A550] pb-2 hover:text-black dark:hover:text-white transition-all">
-            VIEW ALL MASTERPIECES
-          </Link>
+          <FadeIn delay={0.3}>
+            <Link to="/portfolio" className="text-[#00A550] text-[10px] font-bold tracking-widest uppercase border-b border-[#00A550] pb-2 hover:text-black dark:hover:text-white transition-all">
+              VIEW ALL MASTERPIECES
+            </Link>
+          </FadeIn>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
           {/* Main Large Image */}
-          <Link to="/portfolio" className="md:col-span-8 relative overflow-hidden group aspect-video md:aspect-auto border border-zinc-100 dark:border-zinc-900 shadow-xl rounded-md">
-            <img 
-              src={getMinimalistVillaUrl()} 
-              className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
-              alt="Minimalist Villa" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-12 flex flex-col justify-end">
-              <h3 className="text-white text-4xl font-serif transition-transform duration-700 group-hover:-translate-y-1">Minimalist Villa</h3>
-              <p className="text-zinc-400 group-hover:text-[#00A550] text-[10px] font-bold uppercase tracking-[0.2em] mt-3 transition-colors duration-1000">
-                Wall Finishing / Texture 402
-              </p>
-            </div>
-          </Link>
+          <FadeIn className="md:col-span-8" delay={0.2}>
+            <Link to="/portfolio" className="block h-full relative overflow-hidden group aspect-video md:aspect-auto border border-zinc-100 dark:border-zinc-900 shadow-xl rounded-md">
+              <img 
+                src={getMinimalistVillaUrl()} 
+                className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
+                alt="Minimalist Villa" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-12 flex flex-col justify-end">
+                <h3 className="text-white text-4xl font-serif transition-transform duration-700 group-hover:-translate-y-1">Minimalist Villa</h3>
+                <p className="text-zinc-400 group-hover:text-[#00A550] text-[10px] font-bold uppercase tracking-[0.2em] mt-3 transition-colors duration-1000">
+                  Wall Finishing / Texture 402
+                </p>
+              </div>
+            </Link>
+          </FadeIn>
 
           <div className="md:col-span-4 grid grid-rows-2 gap-6">
             {/* Side Image 1 */}
-            <Link to="/portfolio" className="relative overflow-hidden group border border-zinc-100 dark:border-zinc-900 shadow-lg rounded-md">
-              <img 
-                src={getLoftStudioUrl()} 
-                className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
-                alt="Loft Studio" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
-                <h4 className="text-white text-2xl font-serif transition-transform duration-700 group-hover:-translate-y-1">Loft Studio</h4>
-                <p className="text-zinc-400 group-hover:text-[#00A550] text-[9px] uppercase font-bold tracking-[0.2em] mt-2 transition-colors duration-1000">
-                  Polished Floor
-                </p>
-              </div>
-            </Link>
+            <FadeIn delay={0.4}>
+              <Link to="/portfolio" className="block h-full relative overflow-hidden group border border-zinc-100 dark:border-zinc-900 shadow-lg rounded-md">
+                <img 
+                  src={getLoftStudioUrl()} 
+                  className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
+                  alt="Loft Studio" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
+                  <h4 className="text-white text-2xl font-serif transition-transform duration-700 group-hover:-translate-y-1">Loft Studio</h4>
+                  <p className="text-zinc-400 group-hover:text-[#00A550] text-[9px] uppercase font-bold tracking-[0.2em] mt-2 transition-colors duration-1000">
+                    Polished Floor
+                  </p>
+                </div>
+              </Link>
+            </FadeIn>
 
             {/* Side Image 2 */}
-            <Link to="/portfolio" className="relative overflow-hidden group border border-zinc-100 dark:border-zinc-900 shadow-lg rounded-md">
-              <img 
-                src={getCommercialHallUrl()} 
-                className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
-                alt="Commercial Hall" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
-                <h4 className="text-white text-2xl font-serif transition-transform duration-700 group-hover:-translate-y-1">Commercial Hall</h4>
-                <p className="text-zinc-400 group-hover:text-[#00A550] text-[9px] uppercase font-bold tracking-[0.2em] mt-2 transition-colors duration-1000">
-                  Epoxy System
-                </p>
-              </div>
-            </Link>
+            <FadeIn delay={0.6}>
+              <Link to="/portfolio" className="block h-full relative overflow-hidden group border border-zinc-100 dark:border-zinc-900 shadow-lg rounded-md">
+                <img 
+                  src={getCommercialHallUrl()} 
+                  className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105" 
+                  alt="Commercial Hall" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
+                  <h4 className="text-white text-2xl font-serif transition-transform duration-700 group-hover:-translate-y-1">Commercial Hall</h4>
+                  <p className="text-zinc-400 group-hover:text-[#00A550] text-[9px] uppercase font-bold tracking-[0.2em] mt-2 transition-colors duration-1000">
+                    Epoxy System
+                  </p>
+                </div>
+              </Link>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -202,13 +217,18 @@ const Home: React.FC = () => {
       {/* Assurance Section */}
       <section className="py-40 bg-zinc-50 dark:bg-zinc-950/50 border-y border-zinc-100 dark:border-zinc-900 transition-colors duration-500">
         <div className="container mx-auto px-6 lg:px-12 text-center max-w-4xl space-y-12">
-          <p className="text-[#00A550] text-[10px] font-bold tracking-ultra-wide uppercase">Why Professionals Choose Spero</p>
-          <h2 className="text-5xl md:text-7xl font-serif text-black dark:text-white">Seamless Integration. Unmatched Longevity.</h2>
+          <FadeIn>
+            <p className="text-[#00A550] text-[10px] font-bold tracking-ultra-wide uppercase">Why Professionals Choose Spero</p>
+          </FadeIn>
+          <RevealWords 
+            text="Seamless Integration. Unmatched Longevity." 
+            className="text-5xl md:text-7xl font-serif text-black dark:text-white justify-center" 
+          />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12">
-            <StatItem label="Formula Stability" val="25yr" />
-            <StatItem label="Eco-Sustainable" val="100%" />
-            <StatItem label="Rapid Curing" val="48h" />
-            <StatItem label="Gallons Shipped" val="12k+" />
+            <StatItem label="Formula Stability" val="25yr" delay={0.1} />
+            <StatItem label="Eco-Sustainable" val="100%" delay={0.2} />
+            <StatItem label="Rapid Curing" val="48h" delay={0.3} />
+            <StatItem label="Gallons Shipped" val="12k+" delay={0.4} />
           </div>
         </div>
       </section>
@@ -219,21 +239,26 @@ const Home: React.FC = () => {
           <img src={getPerspectiveBackgroundUrl()} className="w-full h-full object-cover" alt="Perspective" />
         </div>
         <div className="relative z-10 space-y-10 px-6">
-          <h2 className="text-6xl md:text-9xl font-serif text-black dark:text-white leading-tight drop-shadow-xl">Elevate Your <br/>Perspective.</h2>
-          <Link to="/contact" className="inline-block bg-[#00A550] text-black px-16 py-6 rounded-md font-bold text-xs tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all transform hover:scale-105 shadow-[0_15px_40px_rgba(0,165,80,0.4)] uppercase">
-            REQUEST A SAMPLE KIT
-          </Link>
+          <RevealWords 
+            text="Elevate Your Perspective." 
+            className="text-6xl md:text-9xl font-serif text-black dark:text-white leading-tight drop-shadow-xl justify-center" 
+          />
+          <FadeIn delay={0.5}>
+            <Link to="/contact" className="inline-block bg-[#00A550] text-black px-16 py-6 rounded-md font-bold text-xs tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all transform hover:scale-105 shadow-[0_15px_40px_rgba(0,165,80,0.4)] uppercase">
+              REQUEST A SAMPLE KIT
+            </Link>
+          </FadeIn>
         </div>
       </section>
     </div>
   );
 };
 
-const StatItem = ({ label, val }: any) => (
-  <div className="space-y-2">
+const StatItem = ({ label, val, delay = 0 }: any) => (
+  <FadeIn delay={delay} className="space-y-2">
     <span className="block text-4xl font-serif text-[#00A550] drop-shadow-[0_0_10px_rgba(0,165,80,0.3)]">{val}</span>
     <p className="text-zinc-600 dark:text-zinc-400 text-[9px] font-bold uppercase tracking-widest">{label}</p>
-  </div>
+  </FadeIn>
 );
 
 export default Home;
