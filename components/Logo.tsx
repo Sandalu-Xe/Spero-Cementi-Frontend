@@ -6,7 +6,7 @@ interface LogoProps {
 }
 
 // Function to get the logo URL from the specified bucket
-export const getLogoUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/screen.png";
+export const getLogoUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/logo.png";
 
 // Function to get the hero background image URL
 export const getHeroBackgroundUrl = () => "https://abnmabkruylcdnczktgt.supabase.co/storage/v1/object/public/Spero%20Images/16299883_254706704968621_1430825952678203593_o-1-1024x683.jpg";
