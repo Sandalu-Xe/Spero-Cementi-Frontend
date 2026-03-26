@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Products from './pages/Products';
 import ProductDetails from './pages/ProductDetails';
 import BlogDetails from './pages/BlogDetails';
+import DesignSystem from './pages/DesignSystem';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -99,6 +100,7 @@ const App: React.FC = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog/:blogId" element={<BlogDetails />} />
+            <Route path="/design-system" element={<DesignSystem />} />
           </Routes>
         </main>
         
