@@ -1,8 +1,7 @@
 # 🌿 Spero Architectural Solutions
 ### *Defining the Next Generation of Architectural Finishes*
 
-[![Live Preview](https://img.shields.io/badge/Live-Preview-00A550?style=for-the-badge&logo=google-chrome&logoColor=white)](https://ais-dev-piqd4ai36uiltucbceeor6-212082213149.asia-southeast1.run.app)
-[![Tech Stack](https://img.shields.io/badge/Tech-React%20%7C%20Vite%20%7C%20Tailwind-black?style=for-the-badge)](https://reactjs.org/)
+
 
 ---
 
