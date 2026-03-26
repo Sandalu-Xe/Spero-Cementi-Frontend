@@ -71,6 +71,8 @@ The project follows a strict design language to maintain its high-end positionin
 
 ---
 <img width="1679" height="881" alt="image" src="https://github.com/user-attachments/assets/b21fcd43-9639-49a7-b4dd-6253dfc87ff0" />
+
+
 <img width="1675" height="878" alt="image" src="https://github.com/user-attachments/assets/a435d3ef-a3dd-44e1-b81a-13868be31dc6" />
 
 
